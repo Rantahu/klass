@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My First List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let item of names" (click)="itemTapped($event,item)">
+
+      <ion-item>
+        <ion-avatar item-left>
+          <img src={{item.picture}}>
+        </ion-avatar>
+        <h2>{{item.name}}</h2>
+        <p>November 5, 1955</p>
+      </ion-item>
+
+      <img src="#">
+
+      <ion-card-content>
+        <p>post content</p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+        <ion-icon name="star"></ion-icon>
+        <div>{{item.rating}}/5</div>
+      </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+        <div>Number of Ratings: {{item.numberOfRatings}}</div>
+      </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            11h ago
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-list>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.name}}</b>
+  </div>
+</ion-content>
